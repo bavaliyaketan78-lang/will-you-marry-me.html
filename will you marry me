@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Question ❤️</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ffe1ec, #f8d8ff);
+  overflow-x: hidden;
+}
+
+.card {
+  width: 100%;
+  max-width: 430px;
+  padding: 32px 22px;
+  background: rgba(255,255,255,.94);
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 12px 40px #c76b9630;
+}
+
+.heart {
+  font-size: 65px;
+  animation: beat 1.2s infinite;
+}
+
+@keyframes beat {
+  50% { transform: scale(1.12); }
+}
+
+h1 { color: #e84378; }
+
+p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+button, .whatsapp {
+  border: 0;
+  border-radius: 12px;
+  padding: 13px 25px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#yes {
+  color: white;
+  background: #e84378;
+}
+
+#no {
+  color: #444;
+  background: #eee;
+}
+
+#result {
+  display: none;
+  margin-top: 25px;
+}
+
+.whatsapp {
+  display: inline-block;
+  background: #25D366;
+  color: white;
+  margin-top: 12px;
+}
+
+.small {
+  font-size: 12px;
+  color: #888;
+  margin-top: 24px;
+}
+</style>
+</head>
+
+<body>
+<main class="card">
+  <div class="heart">💖</div>
+
+  <h1>Will You Marry Me?</h1>
+
+  <p>
+    I have a little question for you... 🥹<br>
+    You make my world more beautiful.
+  </p>
+
+  <h2>Can you marry me? 💍</h2>
+
+  <div class="buttons" id="buttons">
+    <button id="yes">YES 💖</button>
+    <button id="no">NO 🙈</button>
+  </div>
+
+  <section id="result">
+    <h2>Thank you for your answer! ❤️</h2>
+    <p id="message"></p>
+    <a class="whatsapp" id="whatsapp" href="#" target="_blank"
+       rel="noopener">Send response on WhatsApp</a>
+  </section>
+
+  <p class="small">
+    Made with ❤️ just for you. Your choice matters.
+  </p>
+</main>
+
+<script>
+// Replace this with YOUR WhatsApp number.
+// Include country code, digits only. Example: 919876543210
+const YOUR_WHATSAPP_NUMBER = "91XXXXXXXXXX";
+
+const yesButton = document.getElementById("yes");
+const noButton = document.getElementById("no");
+const result = document.getElementById("result");
+const message = document.getElementById("message");
+const whatsapp = document.getElementById("whatsapp");
+const buttons = document.getElementById("buttons");
+
+yesButton.addEventListener("click", function () {
+  buttons.style.display = "none";
+  result.style.display = "block";
+
+  message.textContent =
+    "You selected YES! 💕 If you want to, send me your response on WhatsApp.";
+
+  const text = encodeURIComponent(
+    "I visited your proposal website and selected YES 💖"
+  );
+
+  whatsapp.href =
+    "https://wa.me/" + 9274047447 + "?text=" + text;
+
+  if (!/^91\d{10}$/.test(9274047447)) {
+    whatsapp.textContent = "Set up WhatsApp number first";
+    whatsapp.removeAttribute("href");
+    whatsapp.removeAttribute("target");
+    whatsapp.addEventListener("click", function (event) {
+      event.preventDefault();
+      alert("Please replace YOUR_WHATSAPP_NUMBER in the code with your number and publish again.");
+    });
+  }
+});
+
+noButton.addEventListener("click", function () {
+  // A playful reaction, without preventing her choice.
+  noButton.textContent = "Are you sure? 🙈";
+  noButton.style.transform =
+    "translate(" + (Math.random() * 30 - 15) +
+    "px," + (Math.random() * 20 - 10) + "px)";
+});
+
+</script>
+</body>
+</html>
