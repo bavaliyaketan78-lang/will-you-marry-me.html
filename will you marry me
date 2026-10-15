@@ -150,9 +150,9 @@ yesButton.addEventListener("click", function () {
   );
 
   whatsapp.href =
-    "https://wa.me/" + 9274047447 + "?text=" + text;
+    "https://wa.me/" + 919274047447 + "?text=" + text;
 
-  if (!/^91\d{10}$/.test(9274047447)) {
+  if (!/^91\d{10}$/.test(919274047447)) {
     whatsapp.textContent = "Set up WhatsApp number first";
     whatsapp.removeAttribute("href");
     whatsapp.removeAttribute("target");
